@@ -1,0 +1,48 @@
+{
+  "name": "trunk",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-livereload": "^3.8.1",
+    "jshint": "^2.9.5",
+    "tiny-lr": "^1.0.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-asvn": "^1.0.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-git": "^2.4.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-obfuscate": "^0.2.9",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.5",
+    "tiny-lr": "^1.0.5"
+  },
+  "scripts": {
+    
+    "listen": "gulp watch --color",
+    "bitch": "gulp bitch_img",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

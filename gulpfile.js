@@ -25,7 +25,7 @@ var gulp    = require('gulp'),
                 minifyJS: true,//压缩页面JS
                 minifyCSS: true//压缩页面CSS
             },
-            htmlSrc = ['./origin/p/*.html','./origin/m/*.html'],
+            htmlSrc = ['./origin/*.html','./origin/*.html'],
             htmlDst = './program/';
             gulp.src(htmlSrc, {base: ignoreCatalog})
             .pipe(htmlmin(options))
@@ -39,14 +39,14 @@ var gulp    = require('gulp'),
             .pipe(gulp.dest('./program/script/'));
     });
     gulp.task('css', function () {
-        var cssSrc = ['./origin/p/css/*.css','./origin/m/css/*.css'],
+        var cssSrc = ['./origin/css/*.css','./origin/css/*.css'],
             cssDst = './program/';
             gulp.src(cssSrc, {base: ignoreCatalog})
             .pipe(minifycss())
             .pipe(gulp.dest(cssDst));
     });
     gulp.task('images', function(){
-        var imgSrc = ['./origin/p/img/*','./origin/m/img/*','./origin/m/img/**/*','./origin/p/img/**/*','./origin/p/img/*','./origin/m/img/*','./origin/m/img/**/*','./origin/p/img/**/*'],
+        var imgSrc = ['./origin/img/*','./origin/img/**/*'],
             imgDst = './program/';
             gulp.src(imgSrc, {base: ignoreCatalog})
             // .pipe(imagemin())
@@ -60,9 +60,9 @@ var gulp    = require('gulp'),
     })
     function classIfication(Or){
         gulp.task('js', function () {
-            var jsSrc = ['./origin/p/js/*.js','./origin/m/js/*.js'],
+            var jsSrc = ['./origin/js/*.js','./origin/js/*.js'],
                 jsDst ='./program/',
-                ohter = ['./origin/p/js/jquery-1.11.2.min.js','./origin/m/js/jquery-1.11.2.min.js']
+                ohter = ['./origin/js/jquery-1.11.2.min.js','./origin/js/jquery-1.11.2.min.js']
                 gulp.src(jsSrc, {base: ignoreCatalog})                .on('end',function(){
                     gulp.src(jQ_other,{base: ignoreCatalog}).pipe(gulp.dest(jQ_target))
                 })
@@ -130,19 +130,19 @@ var gulp    = require('gulp'),
             if (err) {
                 return console.log(err);
             }
-            gulp.watch(['./origin/m/*.html','./origin/p/*.html'], function(event){
+            gulp.watch(['./origin/*.html','./origin/*.html'], function(event){
                 gulp.run('html');
             })
 
-            gulp.watch(['./origin/p/css/*.css','./origin/p/css/*.css'], function(){
+            gulp.watch(['./origin/css/*.css','./origin/css/*.css'], function(){
                 gulp.run('css');
             });
 
-            gulp.watch(['./origin/p/js/*.js','./origin/m/js/*.js'], function(){
+            gulp.watch(['./origin/js/*.js','./origin/js/*.js'], function(){
                 classIfication(true);
             });
             // 只复制不压缩
-            gulp.watch(['./origin/p/img/**/*.{png,jpg,gif}','./origin/m/img/**/*.{png,jpg,gif}','./origin/m/img/*.{png,jpg,gif}','./origin/p/img/*.{png,jpg,gif}'], function(){
+            gulp.watch(['./origin/img/**/*.{png,jpg,gif}','./origin/img/**/*.{png,jpg,gif}','./origin/img/*.{png,jpg,gif}','./origin/img/*.{png,jpg,gif}'], function(){
                 gulp.run('images');
             });
             // gulp.watch('./origin/images/*', function(){
